@@ -1,0 +1,8 @@
+Considerando o minimundo descrito:
+• liste os requisitos existentes, classificando-os entre funcionais e não funcionais
+• elabore os seguintes diagramas de análise utilizando a UML:
+o diagrama de casos de uso, apresentando também a descrição expandida de 3 casos de uso – a complexidade do caso de uso selecionado é considerada na avaliação
+o diagrama de classes
+o diagrama de sequência, para os 3 casos de uso descritos (1 diagrama para cada caso de uso)
+
+A forma que vocês apresentam o trabalho também vale ponto! Então não esqueça de colocar os nomes e organizar adequadamente o conteúdo para facilitar a leitura e avaliação.
