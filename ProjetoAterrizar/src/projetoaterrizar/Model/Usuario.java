@@ -2,8 +2,6 @@ package projetoaterrizar.Model;
 
 public class Usuario {
     private int id;
-
-    
     private String nome;
     private String cpf;
     private String email;
@@ -15,16 +13,6 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         //this.id = DB.generateID(); Metodo competado pelo banco de dados 
-    }
-    
-    
-    
-    public Cliente cadastrarCliente(String nome, String cpf, String email, String senha){
-        return null;
-    }
-    
-    public boolean validaSenha(String senha){
-        return false;
     }
     
     public int getId() {
@@ -62,4 +50,26 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public void selfDestruct(){
+        
+    }
+    
+    public Cliente cadastrarCliente(String nome, String cpf, String email, String senha){
+        return null;
+    }
+    
+    public boolean validaDadosUsuario(){
+        if(validaUsuario(this.getCpf(),this.getEmail()) && validaSenha(this.getSenha())){return true;}
+        return false;
+    }
+    
+    public boolean validaSenha(String senha){
+        return false;
+    }
+    
+    public boolean validaUsuario(String cpf, String email){
+        return false;
+    }
+    
 }
