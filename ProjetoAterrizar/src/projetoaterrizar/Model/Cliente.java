@@ -10,5 +10,9 @@ package projetoaterrizar.Model;
  * @author Henrique
  */
 public class Cliente {
+
+    Cliente(String nome, String cpf, String email, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

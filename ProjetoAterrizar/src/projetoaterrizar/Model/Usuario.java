@@ -1,5 +1,7 @@
 package projetoaterrizar.Model;
 
+import projetoaterrizar.Control.Control;
+
 public class Usuario {
     private int id;
     private String nome;
@@ -48,14 +50,23 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        Control control = new Control();
+        this.senha = control.makeHash(senha);
     }
     
-    public void selfDestruct(){
-        
+    public void selfDestruct() throws Throwable{
+        this.finalize();
     }
     
     public Cliente cadastrarCliente(String nome, String cpf, String email, String senha){
+        Control control = new Control();
+        
+        if(this.validaDadosUsuario()){
+            String senhaHash = control.makeHash(senha);
+            Cliente cliente = new Cliente(nome,cpf,email,senhaHash);
+            return cliente;
+        }
+        
         return null;
     }
     
@@ -65,10 +76,33 @@ public class Usuario {
     }
     
     public boolean validaSenha(String senha){
-        return false;
+        Control control = new Control();
+        if(senha.length() < 8){
+            control.mostrarAviso("Senha deve conter pelo menos 8 caracteres",1);
+            return false;
+        }
+        
+        return true;
     }
     
     public boolean validaUsuario(String cpf, String email){
+        Control control = new Control();
+        String cpfs[] = control.selectCpf();
+        String emails[] = control.selectEmail();
+        
+        for (int i = 0; i < cpfs.length; i++) {
+            if(cpfs[i].equals(cpf)){
+                control.mostrarAviso("CPF jah cadastrado",1);
+                return false;
+            }
+        }
+        for (int i = 0; i < emails.length; i++) {
+           if(emails[i].equals(email)){
+               control.mostrarAviso("Email jah cadastrado",1);
+               return false;
+           }
+        }
+        
         return false;
     }
     
