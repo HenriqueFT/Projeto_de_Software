@@ -1,6 +1,7 @@
 package projetoaterrizar.Model;
 
 import projetoaterrizar.Control.Control;
+import projetoaterrizar.Helper.Helper;
 
 public class Usuario {
     private int id;
@@ -14,7 +15,7 @@ public class Usuario {
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
-        //this.id = DB.generateID(); Metodo competado pelo banco de dados 
+        //this.id = DB.generateID(); Metodo computado pelo banco de dados 
     }
     
     public int getId() {
@@ -50,19 +51,17 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        Control control = new Control();
-        this.senha = control.makeHash(senha);
+        this.senha = Helper.makeHash(senha);
     }
     
-    public void selfDestruct() throws Throwable{
+    public void selfDestruct() throws Throwable {
         this.finalize();
     }
     
     public Cliente cadastrarCliente(String nome, String cpf, String email, String senha){
-        Control control = new Control();
         
         if(this.validaDadosUsuario()){
-            String senhaHash = control.makeHash(senha);
+            String senhaHash = Helper.makeHash(senha);
             Cliente cliente = new Cliente(nome,cpf,email,senhaHash);
             return cliente;
         }
