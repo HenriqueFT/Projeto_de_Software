@@ -1,7 +1,6 @@
 package projetoaterrizar.Model;
 
 import projetoaterrizar.Control.Control;
-import projetoaterrizar.Helper.Helper;
 
 public class Usuario {
     private int id;
@@ -91,13 +90,13 @@ public class Usuario {
         
         for (int i = 0; i < cpfs.length; i++) {
             if(cpfs[i].equals(cpf)){
-                control.mostrarAviso("CPF jah cadastrado",1);
+                Control.mostrarAviso("CPF jah cadastrado",1);
                 return false;
             }
         }
         for (int i = 0; i < emails.length; i++) {
            if(emails[i].equals(email)){
-               control.mostrarAviso("Email jah cadastrado",1);
+               Control.mostrarAviso("Email jah cadastrado",1);
                return false;
            }
         }

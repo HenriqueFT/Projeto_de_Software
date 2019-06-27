@@ -1,8 +1,13 @@
 package projetoaterrizar.Control;
 
-public class Control {
+import java.util.HashMap;
+import java.util.Map;
+import projetoaterrizar.Model.Servico;
+import projetoaterrizar.Model.Usuario;
 
-    public Map<String, String> params;
+public class Control {
+  
+    public Map <String, String> params;
     public Usuario usuarioAtual;
 
     // Método executado pra processar qualquer requisição que vier da view
@@ -35,8 +40,22 @@ public class Control {
         throw new UnsupportedOperationException("Not supported yet.");   
     }
 
-    public void mostrarAviso(String cpf_jah_cadastrado, int i) {
+    public  static void mostrarAviso(String cpf_jah_cadastrado, int i) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    public static Servico selectServico(Usuario usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static Servico exibirTela(Servico servico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void save(Servico servico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
+
 }

@@ -2,6 +2,7 @@
 package projetoaterrizar.Model;
 
 import java.util.Date;
+import projetoaterrizar.Control.Control;
 
 public class Servico {
     private int id;
@@ -56,14 +57,33 @@ public class Servico {
     }
     
     public boolean validaDadosServico(){
-        return false;
+        if(this.custo < 0){return false;}
+        if(this.vagas < 0){return false;}
+        Date today = new Date();
+        if(this.date.compareTo(today)< 0){return false;}
+        if(this.desconto < 0){return false;}
+        
+        return true;
     }
     
     public boolean alteraServiso(Usuario usuario){
+        Servico servico = Control.selectServico(usuario);
+        Servico newServico = Control.exibirTela(servico);
+        if (newServico.validaDadosServico()){
+            servico.alteraDadosServiso(newServico);
+        }else{
+            Control.mostrarAviso("Informacao errada, confira edicoes feitas",1);
+        }
+        
         return false;
     }
     
-    public Servico aleraDadosServiso(){
-        return null;
+    public void alteraDadosServiso(Servico servico){
+        this.custo = servico.custo;
+        this.vagas = servico.vagas;
+        this.date = servico.date;
+        this.lugar = servico.lugar;
+        this.desconto = servico.desconto;
+        Control.save(servico);
     }
 }
